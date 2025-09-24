@@ -12,7 +12,7 @@ export default function HomeScreen() {
 
   function handleChange(event) {
     const fieldValue = event.target.value;
-    const fieldName = event.target.value;
+    const fieldName = event.target.value; 
 
     setValues((currentValues) => {
       return {
@@ -34,14 +34,14 @@ export default function HomeScreen() {
             });
             router.push("/auth-page-ssr");
           } catch (error) {
-            alert("Usuário ou senha incorretos:", error);
+            console.error("Usuário ou senha incorretos:", error);
+            alert("Usuário ou senha incorretos");
           }
         }}
       >
         <input
           placeholder="Usuário"
           name="usuario"
-          defaultValue="omariosouto"
           value={values.usuario}
           onChange={handleChange}
         />
@@ -49,12 +49,11 @@ export default function HomeScreen() {
           placeholder="Senha"
           name="senha"
           type="password"
-          defaultValue="safepassword"
           value={values.senha}
           onChange={handleChange}
         />
         <div>
-          <button>Entrar</button>
+          <button type="submit">Entrar</button>
         </div>
       </form>
     </div>
